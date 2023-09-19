@@ -1,0 +1,11 @@
+{% for field in form %}
+    <div style="margin-top: 0.5em"  class="form-group">
+        {{ field.label_tag }}{% if field.field.required %} *{% endif %} {{ field }}
+        {% if field.help_text %}
+            <p><small style="color: grey">{{ field.help_text }}</small></p>
+        {% endif %}
+        {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}
